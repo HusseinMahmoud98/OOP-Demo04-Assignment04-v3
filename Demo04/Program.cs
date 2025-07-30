@@ -83,8 +83,8 @@ namespace Demo04
             #endregion
 
             #region Static
-            Console.WriteLine(Utilities.cmToInch(254));
-            Console.WriteLine(Utilities.PI);
+            //Console.WriteLine(Utilities.cmToInch(254));
+            //Console.WriteLine(Utilities.PI);
             #endregion
 
             #region Sealed
