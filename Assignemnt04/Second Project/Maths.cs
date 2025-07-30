@@ -25,18 +25,18 @@ namespace Assignemnt04.Second_Project
 
         public static double Divide(double num1, double num2)
         {
-            if (num2 !=0)
+            try
             {
                 return num1 / num2;
             }
 
-            else
+            catch (DivideByZeroException e)
             {
-                return -1;
+                Console.WriteLine(e.Message);
+                return 0;
             }
-            
-        }
 
+        }
 
     }
 }
