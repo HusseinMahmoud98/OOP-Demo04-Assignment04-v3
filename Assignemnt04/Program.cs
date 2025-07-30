@@ -1,4 +1,5 @@
 ﻿using Assignemnt04.First_Project;
+using Assignemnt04.Second_Project;
 
 namespace Assignemnt04
 {
@@ -70,6 +71,28 @@ namespace Assignemnt04
             {
                 Console.WriteLine("D1 is not greater than D2");
             }
+
+            #endregion
+
+            #region Project02
+             double num1, num2;
+
+            do
+            {
+                Console.WriteLine("Enter the first number :");
+            }
+            while (!double.TryParse(Console.ReadLine(), out num1));
+
+            do
+            {
+                Console.WriteLine("Enter the first number :");
+            }
+            while (!double.TryParse(Console.ReadLine(), out num2));
+
+            Console.WriteLine($"{num1} + {num2} = {Maths.Add(num1, num2)}");
+            Console.WriteLine($"{num1} - {num2} = {Maths.Subtract(num1, num2)}");
+            Console.WriteLine($"{num1} * {num2} = {Maths.Multiply(num1, num2)}");
+            Console.WriteLine($"{num1} / {num2} = {Maths.Divide(num1, num2)}");
 
             #endregion
         }
