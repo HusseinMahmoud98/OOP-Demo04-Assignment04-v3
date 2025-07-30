@@ -86,7 +86,7 @@ namespace Assignemnt04
 
             do
             {
-                Console.Write("Enter the first number: ");
+                Console.Write("Enter the second number: ");
             }
             while (!double.TryParse(Console.ReadLine(), out num2));
 
