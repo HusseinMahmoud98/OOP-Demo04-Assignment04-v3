@@ -8,21 +8,32 @@ namespace Assignemnt04.First_Project
 {
     internal class Duration
     {
+        //----------------------------- Declaring private attributes--------------------------------//
         private int _hours;
         private int _minutes;
         private int _seconds;
 
-
+        //------------------------------------ Declaring properties --------------------------------//
+        //Hours
         public int Hours
         {
             get { return _hours; }
-            set { _hours = value; }
+            set 
+            { 
+                _hours = value;
+
+                if(_hours < 0)
+                {
+                    _hours = 0;
+                }
+            }
         }
 
+        //Minutes
         public int Minutes 
         {
             get { return _minutes; }
-            set
+            set  //handling minutes if its greater than or equals 60 or if minutes < 0 subtracts from hours
             { 
                 _minutes = value % 60;
                 Hours += value / 60;
@@ -34,13 +45,13 @@ namespace Assignemnt04.First_Project
                 }
             }
         }
-        public int Seconds 
+        public int Seconds //handling seconds if its greater than or equals 60 or if seconds < 0 subtracts from minutes
         {
             get { return _seconds; }
             set 
             {
                 _seconds = value%60;
-                Minutes = value/60;
+                Minutes += value/60;
 
                 if (_seconds < 0)
                 {
@@ -49,8 +60,8 @@ namespace Assignemnt04.First_Project
                 }
             }
         }
-           
 
+        //------------------------------------ Constractors --------------------------------//
         public Duration(int hours, int minutes, int seconds)
         {
             Hours = hours;
@@ -60,7 +71,7 @@ namespace Assignemnt04.First_Project
 
         public Duration(int seconds)
         {
-            Seconds = seconds % 60;
+            Seconds = seconds;
             seconds -= Seconds;
 
             Minutes = (seconds/60) % 60;
@@ -69,11 +80,14 @@ namespace Assignemnt04.First_Project
             Hours = seconds / 3600;
         }
 
+        //------------------------------------ Overriding methods --------------------------------//
         public override string ToString()
         {
             return $"Hours: {Hours}, Minutes: {Minutes}, Seconds: {Seconds}";
         }
 
+
+        //------------------------------------ Declaring operators --------------------------------//
         public static Duration operator + (Duration D1, Duration D2)
         {
             return new Duration(D1.Hours + D2.Hours, D1.Minutes + D2.Minutes, D1.Seconds + D2.Seconds);
